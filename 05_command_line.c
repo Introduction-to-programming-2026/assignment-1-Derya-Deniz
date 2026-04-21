@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char *argv[]) {
+
+    if (argc != 4) {
+        printf("Usage: ./cmd <add|sub|mul|div> a b\n");
+        return 1;
+    }
+
+    char *op = argv[1];
+    long a = strtol(argv[2], NULL, 10);
+    long b = strtol(argv[3], NULL, 10);
+
+    if (strcmp(op, "add") == 0)
+        printf("%ld\n", a + b);
+
+    else if (strcmp(op, "sub") == 0)
+        printf("%ld\n", a - b);
+
+    else if (strcmp(op, "mul") == 0)
+        printf("%ld\n", a * b);
+
+    else if (strcmp(op, "div") == 0) {
+        if (b == 0)
+            printf("Cannot divide by zero\n");
+        else
+            printf("%ld\n", a / b);
+    } else {
+        printf("Unknown operation\n");
+    }
+
+    return 0;
+}
